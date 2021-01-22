@@ -2,7 +2,8 @@ import { useState, useEffect, Fragment } from 'react'
 import JobDetail from './jobDetails'
 import moment from 'moment'
 
-const JobList = ({jobs, setSearchData}) => {
+const JobList = ({jobs, setSearchData, originalData}) => {
+const [sort, setSort] = useState({job_title: 1, experience: 1, work_schedule: 1})
 
 const getJobsCount = (jobs) => {
     let total = 0
@@ -16,12 +17,12 @@ const getPostedDate = (pastDate) => {
     return moment(pastDate).fromNow()
 }
 
-const sortData = () => {
+const sortData = (key) => {
     let newJobs = [...jobs]
-    let abc = []
-    newJobs.map(job => (
-        abc = job.items.sort((a,b) => a.job_title - b.job_title)
-    ))
+    setSort({...sort, [key]: sort[key] * -1})
+    newJobs.map(job => {
+     job.items.sort((a,b) => sort[key] ===1 ? a[key].localeCompare(b[key]): b[key].localeCompare(a[key]))
+    })
     setSearchData(newJobs)
 }
 
@@ -43,11 +44,9 @@ return (
             </div>  
             <div className='text-sm'>
               <span className='text-gray-400'>Sort by</span>
-              <span className='pl-2 cursor-pointer'>Location</span>
-              <span className='pl-2 cursor-pointer'>Role</span>
-              <span className='pl-2 cursor-pointer'>Department</span>
-              <span className='pl-2 cursor-pointer'>Education</span>
-              <span className='pl-2 cursor-pointer' onClick={() => sortData()}>Experience</span>
+              <span className='pl-2 cursor-pointer' onClick={() => sortData("work_schedule")}>Work Schedule</span>
+              <span className='pl-2 cursor-pointer' onClick={() => sortData("job_title")}>Job Title</span>
+              <span className='pl-2 cursor-pointer' onClick={() => sortData("experience")}>Experience</span>
             </div>
           </div>
           {jobs.map((job, id) => (

@@ -1,7 +1,10 @@
-import jobs from '../../data/jobs'
+const jobs = require('../../data/jobs') 
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
   res.statusCode = 200
+  const dataKeys = Object.keys(jobs[0].items[0])
+  const searchString = req?.query?.search
+  
   // @todo: implement filters and search
   // @todo: implement automated tests
 
@@ -10,5 +13,25 @@ export default async (req, res) => {
   // correct results even if server-side can't finish replies in the right order
   await new Promise((resolve) => setTimeout(resolve, 1000 * Math.random()))
 
-  res.json({jobs: jobs})
+  if(!searchString || searchString === "") return res.json({jobs: jobs})
+
+  const searchData = []
+  jobs.forEach(job => {
+    for(let i=0; i<job.items.length; i++){
+        const item = job.items[i]
+        let breakFlag = false
+        for(let j=0; j<dataKeys.length; j++)
+        {
+            const key = dataKeys[j]
+            if(item[key].toString().toLowerCase().includes(req.query.search.toLowerCase()))
+            {
+                searchData.push(job)
+                breakFlag = true
+                break
+            }
+        }
+        if(breakFlag) break
+    }
+  })
+  return res.json({jobs: searchData})
 }

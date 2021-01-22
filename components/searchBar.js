@@ -2,33 +2,20 @@ import { useState, useEffect } from 'react'
 
 const SearchBar = ({jobs, setSearchData}) => {
     const [searchString, setSearchString] = useState('')
+    const fetcher = (url) =>
+    fetch(url).then((res) => {
+      return res.json();
+    });
 
-    const searchData = () => {
+    const searchData = () => { 
         if(searchString === "")
         {
             setSearchData(null)
             return
         }
-        const dataKeys = Object.keys(jobs[0].items[0])
-        const searchData = []
-        jobs.forEach(job => {
-            for(let i=0; i<job.items.length; i++){
-                const item = job.items[i]
-                let breakFlag = false
-                for(let j=0; j<dataKeys.length; j++)
-                {
-                    const key = dataKeys[j]
-                    if(item[key].toString().toLowerCase().includes(searchString.toLowerCase()))
-                    {
-                        searchData.push(job)
-                        breakFlag = true
-                        break
-                    }
-                }
-                if(breakFlag) break
-            }
+        fetcher("/api/jobs?search="+searchString).then((data) => {
+            setSearchData(data.jobs)
         })
-        setSearchData(searchData)
     }
 
     useEffect(() => {

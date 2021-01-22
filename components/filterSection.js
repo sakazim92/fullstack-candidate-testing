@@ -20,7 +20,7 @@ const FilterSection = () => {
   const filters = Object.keys(filter_title);
 
   return (
-    <div className="hidden md:inline-block w-48 h-auto mt-4 ml-2">
+    <div className="hidden md:inline-block w-50 h-auto mt-4 ml-2">
       {filters.map((filter, id) => (
         <div className="border border-gray-300 p-4 mb-2" key={"filter" + id}>
           <h6 className="font-semibold mb-2">{filter_title[filter]}</h6>

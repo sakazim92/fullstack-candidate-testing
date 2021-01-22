@@ -13,7 +13,7 @@ const Footer = () => {
                 dedicated to help nurses find jobs that they love
               </li>
               <li className="mt-2 inline-block mr-1 sm:block sm:mr-0">
-                All copyrights reserved © 2020 - Health Explore
+                All copyrights reserved © 2021 - Health Explore
               </li>
             </ul>
           </div>
