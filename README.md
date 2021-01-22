@@ -5,17 +5,13 @@ visit: https://fullstack-candidate-testing-sigma.vercel.app/
 
 ## Usage
 
-npm i nodemon -g
-// OR
-yarn global add nodemon
-
-Install server and client dependencies
+Install dependencies
 
 ```
 yarn
 ```
 
-To start the server and client at the same time (from the root of the project) using mac or linux
+To start the project (from the root of the project) using mac or linux
 
 ```
 yarn dev
