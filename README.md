@@ -1,7 +1,7 @@
 # fullstack-candidate-testing
 
 ## Demo App
-visit: https://fullstack-candidate-testing-sigma.vercel.app/
+visit: https://fullstack-candidate-testing-2wcg7tpfg.vercel.app/
 
 ## Usage
 
