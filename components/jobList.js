@@ -52,7 +52,7 @@ return (
           </div>
           {jobs.map((job, id) => (
               <div className='ml-2 relative' key={id}>
-                <div className='h-10 w-10 rounded-lg bg-gray-300 inline-block cursor-pointer mb-2'>
+                <div className='h-10 w-10 rounded-lg bg-gray-500 inline-block cursor-pointer mb-2'>
                 <p className='text-white font-semibold text-2xl mt-0.5 text-center' onClick={() => showHideJobs('job-'+id)}>{job.name.substring(0,2).toUpperCase()}</p>
                 </div>
                 <span className='absolute top-2 ml-4 cursor-pointer' onClick={() => showHideJobs('job-'+id)}>{`${job.total_jobs_in_hospital} jobs for ${job.name}`}</span>

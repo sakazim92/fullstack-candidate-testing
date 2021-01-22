@@ -17,13 +17,13 @@ const JobDetails = ({ job, id, id2 }) => {
         </div>
         
       <div className="flex flex-col">
-        <div className="w-28 border rounded-lg border-blue-400 py-1 px-3 inline-block mr-4 cursor-pointer bg-blue-400">
+        <div className="w-28 border rounded-lg border-blue-600 py-1 px-3 inline-block mr-4 cursor-pointer bg-blue-600">
           <p className="text-white text-sm py-1 px-1 text-center">
             Job details
           </p>
         </div>
-        <div className="border rounded-lg border-blue-400 py-1 px-3 inline-block mr-4 cursor-pointer mt-2">
-          <p className="text-blue-400 text-sm text-center py-1">Save job</p>
+        <div className="border rounded-lg border-blue-600 py-1 px-3 inline-block mr-4 cursor-pointer mt-2">
+          <p className="text-blue-600 text-sm text-center py-1">Save job</p>
         </div>
       </div>
     </div>
