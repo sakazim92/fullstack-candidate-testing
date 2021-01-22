@@ -16,6 +16,11 @@ To start the project (from the root of the project) using mac or linux
 ```
 yarn dev
 ```
+To start test the jobs api (from the root of the project) using mac or linux
+
+```
+yarn test
+```
 
 ## Challenge Instructions
 

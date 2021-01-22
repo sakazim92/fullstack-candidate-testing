@@ -25,6 +25,7 @@ const Index = () => {
         <FilterSection />
         <JobList
           jobs={(searchData!=null) ? searchData : data.jobs}
+          originalData = {data.jobs}
           setSearchData={setSearchData}
         />
       </div>

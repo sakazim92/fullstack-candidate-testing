@@ -6,13 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build-style": "tailwind build styles/globals.css -o styles/styles.css"
+    "build-style": "tailwind build styles/globals.css -o styles/styles.css",
+    "test": "./node_modules/.bin/mocha"
   },
   "dependencies": {
     "autoprefixer": "^10.2.3",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
     "moment": "^2.29.1",
     "next": "10.0.3",
+    "node-mocks-http": "^1.10.1",
     "postcss": "^8.2.4",
+    "prettier": "^2.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "swr": "^0.4.0",
