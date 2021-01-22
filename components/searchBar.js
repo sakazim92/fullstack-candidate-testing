@@ -6,7 +6,7 @@ const SearchBar = ({jobs, setSearchData}) => {
     const searchData = () => {
         if(searchString === "")
         {
-            setSearchData([])
+            setSearchData(null)
             return
         }
         const dataKeys = Object.keys(jobs[0].items[0])

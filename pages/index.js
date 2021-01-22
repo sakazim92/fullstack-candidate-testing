@@ -7,7 +7,7 @@ import SearchBar from "../components/searchBar";
 import { useState, useEffect } from "react";
 
 const Index = () => {
-  const [searchData, setSearchData] = useState([]);
+  const [searchData, setSearchData] = useState(null);
   const fetcher = (url) =>
     fetch(url).then((res) => {
       return res.json();
@@ -24,7 +24,7 @@ const Index = () => {
       <div className="flex">
         <FilterSection />
         <JobList
-          jobs={searchData.length ? searchData : data.jobs}
+          jobs={(searchData!=null) ? searchData : data.jobs}
           setSearchData={setSearchData}
         />
       </div>
